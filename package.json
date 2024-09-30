@@ -1,6 +1,6 @@
 {
   "name": "joi-country-state",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Joi extension for validating country and state",
   "main": "index.js",
   "keywords": [
@@ -15,7 +15,7 @@
   "homepage": "https://github.com/subahanumanth/joi-country-state#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/subahanumanth/joi-country-state.git"
+    "url": "https://github.com/subahanumanth/joi-country-state"
   },
   "dependencies": {
     "country-state-city": "^3.2.1"

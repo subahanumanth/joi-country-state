@@ -1,6 +1,6 @@
 'use strict';
 
-import { Country, State } from 'country-state-city';
+const { Country, State } = require('country-state-city');
 
 const countryValidator = (joi) => ({
     type: 'country',
@@ -38,7 +38,7 @@ const stateValidator = (joi) => ({
     }
 });
 
-export {
+module.exports = {
     countryValidator,
     stateValidator
 }
