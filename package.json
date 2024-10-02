@@ -1,14 +1,18 @@
 {
   "name": "joi-country-state",
-  "version": "1.2.0",
+  "version": "1.4.0",
   "description": "Joi extension for validating country and state",
   "main": "index.js",
   "keywords": [
     "joi",
     "country",
     "state",
+    "region",
     "validation",
-    "locale"
+    "validator",
+    "location",
+    "locale",
+    "schema"
   ],
   "license": "ISC",
   "author": "Subahanumanth C <subahanu1999@gmail.com>",

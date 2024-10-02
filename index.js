@@ -9,11 +9,9 @@ const countryValidator = (joi) => ({
         'country.invalid': '{{#label}} is not a valid country'
     },
     validate(value, helpers) {
-        if (Country.getCountryByCode(value)) {
-            return { value };
+        if (!Country.getCountryByCode(value)) {
+            return { value, errors: helpers.error('country.invalid') };
         }
-
-        return { value, errors: helpers.error('country.invalid') };
     }
 });
 
@@ -24,17 +22,32 @@ const stateValidator = (joi) => ({
         'state.countryRequired': 'country is required to validate state',
         'state.invalid': '{{#label}} must be a valid state code for the selected country',
     },
-    validate(value, helpers) {
-        const country = helpers.state.ancestors[0].country;
-        if (!country) {
-            return { value, errors: helpers.error('state.countryRequired') };
-        }
+    rules: {
+        forCountry: {
+            method(country) {
+                return this.$_addRule({ name: 'forCountry', args: { country } });
+            },
+            args: [
+                {
+                    name: 'country',
+                    ref: true,
+                    assert: (value) => typeof value === 'string',
+                    message: 'must be an string'
+                }
+            ],
+            validate(value, helpers, args) {
+                const country = args.country;
+                if (!country) {
+                    return helpers.error('state.countryRequired');
+                }
 
-        if (State.getStateByCodeAndCountry(value, helpers.state.ancestors[0].country)) {
-            return { value };
-        }
+                if (!State.getStateByCodeAndCountry(value, country)) {
+                    return helpers.error('state.invalid');
+                }
 
-        return { value, errors: helpers.error('state.invalid') };
+                return value;
+            }
+        },
     }
 });
 
