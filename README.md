@@ -68,8 +68,8 @@ const Joi = BaseJoi.extend(countryStateValidator);
 
 // Define your country-state mapping
 const countryStateConfig = {
-  IN: ["Delhi", "Maharashtra", "Karnataka", "TN"],
-  US: ["California", "Texas", "New York"],
+  IN: ["DL", "MH", "KA", "TN"], // Delhi, Maharashtra, Karnataka, Tamil Nadu
+  US: ["CA", "TX", "NY"], // California, Texas, New York
 };
 
 const schema = Joi.object({
