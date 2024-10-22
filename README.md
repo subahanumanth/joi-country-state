@@ -38,7 +38,7 @@ schema.validate({ country: "IN", state: "TN" });
 // Country & State with Custom Data
 const countryStateConfig = {
   IN: ["DL", "MH", "KA", "TN"],
-  US: ["CA", "TX", "NY"],
+  US: ["CA", "TX", "NY", "CO"],
 };
 const customSchema = Joi.object({
   country: Joi.string()
