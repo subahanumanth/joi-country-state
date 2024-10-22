@@ -1,6 +1,6 @@
 {
   "name": "joi-country-state",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "Joi extension for validating country and state",
   "main": "index.js",
   "files": [
